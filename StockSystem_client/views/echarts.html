@@ -1,0 +1,809 @@
+<div style="width:15%;background: #1b1e24;height: 1000px;float: left;">
+    <nav>
+        <ul>
+            <li id="li1">
+                <a href="echarts" id="stock1" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">辰欣药业</span>
+                    <span class="menu-item-parent" style="float: right">sh603367</span>
+                </a>
+            </li>
+            <li id="li2">
+                <a href="#" id="stock2" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">菲达环保</span>
+                    <span class="menu-item-parent" style="float: right">sh600526</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock3" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">正虹科技</span>
+                    <span class="menu-item-parent" style="float: right">sz000702</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock4" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">红宝丽</span>
+                    <span class="menu-item-parent" style="float: right">sz002165</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock5" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">精工钢构</span>
+                    <span class="menu-item-parent" style="float: right">sh600496</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock6" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">德创环保</span>
+                    <span class="menu-item-parent" style="float: right">sh603177</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock7" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">金隅股份</span>
+                    <span class="menu-item-parent" style="float: right">sh601992</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock8" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">冀中能源</span>
+                    <span class="menu-item-parent" style="float: right">sz000937</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock9" onclick="testClick(this)">
+                    <span class="menu-item-parent">寒锐钴业</span>
+                    <span class="menu-item-parent" style="float: right">sz300618</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock10" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">精达股份</span>
+                    <span class="menu-item-parent" style="float: right">sh600577</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock11" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">金瑞矿业</span>
+                    <span class="menu-item-parent" style="float: right">sh600714</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock12" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">利君股份</span>
+                    <span class="menu-item-parent" id="lijun" onclick="getData()" style="float: right">sz002651</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock13" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">同力水泥</span>
+                    <span class="menu-item-parent" style="float: right">sz000885</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock14" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">华谊集团</span>
+                    <span class="menu-item-parent" style="float: right">sh600623</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock15" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">中国长城</span>
+                    <span class="menu-item-parent" style="float: right">sz000066</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock16" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">深科技</span>
+                    <span class="menu-item-parent" style="float: right">sz000021</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock17" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">湘潭电化</span>
+                    <span class="menu-item-parent" style="float: right">sz002125</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock18" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">智光电气</span>
+                    <span class="menu-item-parent" style="float: right">sz002169</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock19" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">姚记扑克</span>
+                    <span class="menu-item-parent" style="float: right">sz002605</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="stock20" onclick="testClick(this)" name="stockName">
+                    <span class="menu-item-parent">红阳能源</span>
+                    <span class="menu-item-parent" style="float: right">sh600758</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</div>
+<div style="float:left;margin-left: 15px;width :60%;">
+    <div style="">
+        <div id="ribbon">
+        <span class="ribbon-button-alignment">
+            <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip"
+                  data-placement="bottom"
+                  data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings."
+                  data-html="true"
+                  data-reset-msg="Would you like to RESET all your saved widgets and clear LocalStorage?">
+                <i class="fa fa-refresh"></i>
+            </span>
+        </span>
+        <span class="ribbon-button-alignment pull-right" style="margin-left:25px">
+            <button onclick="displayNone('fenshi')" class="btn btn-ribbon hidden-xs"><i
+                    class="fa fa-grid"></i>分时</button>
+           	<button onclick="displayNone('rixian')" class="btn btn-ribbon hidden-xs"><i
+                    class="fa fa-grid"></i> 日线</button>
+			<button onclick="displayNone('zhouxian')" class="btn btn-ribbon hidden-xs"><i
+                    class="fa fa-grid"></i>周线</button>
+			<button onclick="displayNone('yuexian')" class="btn btn-ribbon hidden-xs"><i
+                    class="fa fa-grid"></i> 月线</button>
+            <span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa fa-plus"></i> Add</span>
+            <button id="search4" class="btn btn-ribbon" data-title="search"><i class="fa fa-search"></i> <span
+                    class="hidden-mobile">Search</span></button>
+            <input id="inputValue" type="text"  placeholder="Find reports and more">
+            <button onclick="testClick(null)" >
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+
+        </span>
+    </div>
+        <div id="divMin" name="divContent" style="height:350px;width: 100%;display: block;">
+        <img id="dayImg" style="background-color: #21202D;width: 100%;height: 350px;"/>
+     </div>
+        <div id="divEchart" name="divContent" style="height:600px;width: 100%;display: none"></div>
+    </div>
+<div class="row" style="height:600px;width:100%;background-color: #21202D;margin-left: 0.5px;">
+    <div class="col-sm-6 col-md-4 col-lg-6" style="float:left">
+        <form>
+        <div id="authorize" style="height:600px;width:100%;background-color: #21202D;">
+        <h2 align="center" class="buyStock" >买入股票</h2>
+        <div class="inputText">
+            <div >
+            <label style="color: #ffffff">股票代码</label><br/>
+                <input type="text" id="stockId" class="col-sm-6 col-md-4 col-lg-12"/>
+            </div><br/>
+            <div >
+                <label style="color: #ffffff" id="stockName1">股票名称</label><br/><input type="text" id="stoName" class="col-sm-6 col-md-4 col-lg-12"/>
+            </div>
+        </div>
+
+        <!--<div class="col-sm-6 col-md-4 col-lg-4">-->
+            <!--<div class="form-group">-->
+                <!--<label>买入价格</label>-->
+                <!--<span class="ui-spinner ui-widget ui-widget-content ui-corner-all">-->
+                    <!--<input class="form-control spinner ui-spinner-input" id="buyStock" name="spinner-decimal"-->
+                                  <!--type="number" value="0.00" autocomplete="off" role="spinbutton">-->
+                <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="row" style="padding-left: 20px;">
+        <div class="col-sm-6 col-md-4 col-lg-12">
+            <div class="form-group">
+                <label>买入价格</label>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all">
+                    <input class="form-control" id="commPrice"  value="1.100">
+                    <a class="ui-spinner-button ui-spinner-up ui-corner-tr" onclick="add1()">
+                        <span class="ui-icon ui-icon-triangle-1-n">▲</span></a>
+                    <a class="ui-spinner-button ui-spinner-down ui-corner-br" onclick="sub1()">
+                        <span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+            </div>
+        </div>
+        </div>
+        <div class="row" style="padding-left: 20px;">
+        <div class="col-sm-6 col-md-4 col-lg-12">
+            <div class="form-group">
+                <label>可买（股）</label>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all">
+                    <input class="form-control" id="canBuy"  value="0">
+                    <a class="ui-spinner-button ui-spinner-up ui-corner-tr" onclick="add2()">
+                        <span class="ui-icon ui-icon-triangle-1-n">▲</span></a>
+                  </span>
+            </div>
+        </div>
+        </div>
+        <div class="row" style="padding-left: 20px;">
+        <div class="col-sm-6 col-md-4 col-lg-12">
+            <div class="form-group">
+                <label>买入数量</label>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all">
+                    <input class="form-control" id="commquantity"  value="100">
+                    <a class="ui-spinner-button ui-spinner-up ui-corner-tr" onclick="add3()">
+                        <span class="ui-icon ui-icon-triangle-1-n">▲</span></a>
+                    <a class="ui-spinner-button ui-spinner-down ui-corner-br" onclick="sub3()">
+                        <span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+            </div>
+        </div>
+        </div>
+        <div class="row" style="padding-left: 20px;">
+        <div class="col-sm-6 col-md-4 col-lg-12">
+            <button type="reset" >重填</button>
+            <button  onclick="buyIn();">买入</button>
+        </div>
+        </div>
+
+        </div>
+        </form>
+    </div>
+    <div style="float:right" class="col-sm-6 col-md-4 col-lg-6">
+        <form>
+        <div id="authorize1" style="height:600px;width:100%;background-color: #21202D;">
+            <h2 align="center" class="buyStock" >卖出股票</h2>
+            <div class="inputText">
+                <div >
+                    <label style="color: #ffffff">股票代码</label><br/>
+                    <input type="text" id="sellStock1" class="col-sm-6 col-md-4 col-lg-12"/>
+                </div><br/>
+                <div >
+                    <label style="color: #ffffff">股票名称</label><br/><input type="text" class="col-sm-6 col-md-4 col-lg-12" id="sellName1"/>
+                </div>
+            </div>
+
+            <!--<div class="col-sm-6 col-md-4 col-lg-4">-->
+            <!--<div class="form-group">-->
+            <!--<label>买入价格</label>-->
+            <!--<span class="ui-spinner ui-widget ui-widget-content ui-corner-all">-->
+            <!--<input class="form-control spinner ui-spinner-input" id="buyStock" name="spinner-decimal"-->
+            <!--type="number" value="0.00" autocomplete="off" role="spinbutton">-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="row" style="padding-left: 20px;">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <div class="form-group">
+                        <label>卖出价格</label>
+                        <span class="ui-spinner ui-widget ui-widget-content ui-corner-all">
+                    <input class="form-control" id="buyStockOne"  value="1.100">
+                    <a class="ui-spinner-button ui-spinner-up ui-corner-tr"  onclick="addOne()">
+                        <span class="ui-icon ui-icon-triangle-1-n">▲</span></a>
+                    <a class="ui-spinner-button ui-spinner-down ui-corner-br" id="downOne" onclick="subOne()">
+                        <span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 20px;">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <div class="form-group">
+                        <label>可卖（股）</label>
+                        <span class="ui-spinner ui-widget ui-widget-content ui-corner-all">
+                    <input class="form-control" id="canBuyOne"  value="0">
+                    <a class="ui-spinner-button ui-spinner-up ui-corner-tr" onclick="addTwo()">
+                        <span class="ui-icon ui-icon-triangle-1-n">▲</span></a>
+                  </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 20px;">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <div class="form-group">
+                        <label>卖出数量</label>
+                        <span class="ui-spinner ui-widget ui-widget-content ui-corner-all">
+                    <input class="form-control" id="buyStockTwo"  value="100">
+                    <a class="ui-spinner-button ui-spinner-up ui-corner-tr" onclick="addThree()">
+                        <span class="ui-icon ui-icon-triangle-1-n">▲</span></a>
+                    <a class="ui-spinner-button ui-spinner-down ui-corner-br" onclick="subThree()">
+                        <span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 20px;">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <button type="reset">重填</button>
+                    <button onclick="buyOut();">卖出</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+<div class="rightDiv">
+    <div class="divOne">
+        <p class="pOne" id="stockName"></p>
+        <p class="pTwo" id="stockSno"></p>
+    </div>
+
+    <div class="divThree">
+        <div class="sellDiv">卖盘</div>
+        <div class="sellData">
+            <span class="spanOne">
+                <p>卖5</p>
+                <p>卖4</p>
+                <p>卖3</p>
+                <p>卖2</p>
+                <p>卖1</p>
+            </span>
+            <span class="spanTwo">
+                <p id="sellFivePrice"></p>
+                <p id="sellFourPrice"></p>
+                <p id="sellThreePrice"></p>
+                <p id="sellTwoPrice"></p>
+                <p id="sellOnePrice"></p>
+            </span>
+            <span class="spanThree">
+                <p id="sellFive">11.86</p>
+                <p id="sellFour">11.85</p>
+                <p id="sellThree">11.84</p>
+                <p id="sellTwo">11.83</p>
+                <p id="sellOne">11.82</p>
+            </span>
+        </div>
+    </div>
+    <div class="divTwo">
+        <div class="buyDiv">买盘</div>
+        <div class="buyData">
+            <span class="spanOne">
+                <p>买1</p>
+                <p>买2</p>
+                <p>买3</p>
+                <p>买4</p>
+                <p>买5</p>
+            </span>
+            <span class="spanTwo">
+                <p id="buyOnePrice"></p>
+                <p id="buyTwoPrice"></p>
+                <p id="buyThreePrice"></p>
+                <p id="buyFourPrice"></p>
+                <p id="buyFivePrice"></p>
+            </span>
+            <span class="spanThree">
+                <p id="buyOne"></p>
+                <p id="buyTwo"></p>
+                <p id="buyThree"></p>
+                <p id="buyFour"></p>
+                <p id="buyFive"></p>
+            </span>
+        </div>
+    </div>
+    <div class="divFour">
+        <span class="spanOne">
+                <p>最新</p>
+                <p>涨跌</p>
+                <p>涨幅</p>
+                <p>成交量</p>
+            </span>
+        <span class="spanTwo">
+            <p id="lastest"></p>
+            <p id="highest"></p>
+            <p id="lowest"></p>
+            <p id="volume"></p>
+        </span>
+        <span class="spanOne">
+            <p >最高价</p>
+            <p >最低价</p>
+            <p >开盘价</p>
+            <p >成交额</p>
+        </span>
+        <span class="spanThree">
+                <p id="highPrice"></p>
+                <p id="lowPrice"></p>
+                <p id="open"></p>
+                <p id="price"></p>
+            </span>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var storage = window.localStorage;
+    function returnID(){
+        var strKey="userId";
+        if(storage.getItem(strKey)!=null){
+            return storage.getItem(strKey);
+        }else if(Cookie.read(strKey)!=null){
+            return Cookie.read(strKey);
+        }
+    }
+    var bankroll_id=returnID();
+
+    function buyIn(){
+        var comm = {};
+        comm.stockId=$("#sellStock1").val();
+        comm.stockName=$("#sellName1").val();
+        comm.commquantity=$("#commquantity").val();
+        comm.bankroll_id=bankroll_id;
+        comm.commprice=$("#commPrice").val();
+        comm.accomplishquantity="0";
+        comm.type="1";
+        $.ajax({
+            type: "POST",
+            url: '/client/transaction/addComm',
+            datType: "JSON",
+            contentType: "application/json",
+            data: JSON.stringify(comm),
+            success: function (result) {
+                alert("买入成功");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("买入失败");
+            },
+        })
+    }
+
+    function buyOut(){
+        var comm = {};
+        comm.stockId=$("#sellStock1").val();
+        comm.stockName=$("#sellName1").val();
+        comm.commquantity=$("#commquantity").val();
+        comm.bankroll_id=bankroll_id;
+        comm.commprice=$("#commPrice").val();
+        comm.accomplishquantity="0";
+        comm.type="0";
+        $.ajax({
+            type: "POST",
+            url: '/client/transaction/addComm',
+            datType: "JSON",
+            contentType: "application/json",
+            data: JSON.stringify(comm),
+
+            contentType: "application/json",
+            success: function (result) {
+                alert("卖出成功");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("卖出失败");
+            },
+        })
+    }
+
+    function add1(){
+        var value=(parseFloat($("#commPrice").val())+0.1).toFixed(3);
+        $("#commPrice").val(value);
+    }
+    function add2(){
+        var value=(parseInt($("#canBuy").val())+1).toFixed(3);
+        $("#canBuy").val(value);
+    }
+    function add3(){
+        var value=(parseFloat($("#commquantity").val())+100);
+        $("#commquantity").val(value);
+    }
+    function sub1(){
+        var value=parseFloat($("#commPrice").val());
+        if(value<=0){
+            alert("买入金额不能小于零")
+        }else{
+        var newValue=(parseFloat($("#commPrice").val())-0.1).toFixed(3);
+        $("#commPrice").val(newValue);
+        }
+
+    }
+    function sub3(){
+        var value=parseInt($("#commquantity").val());
+        if(value<=0){
+            alert("买入数量不能小于零")
+        }else{
+            var newValue=(parseInt($("#commquantity").val())-100);
+            $("#commquantity").val(newValue);
+        }
+    }
+    function addOne(){
+        var value=(parseFloat($("#buyStockOne").val())+0.1).toFixed(3);
+        $("#buyStockOne").val(value);
+    }
+    function addTwo(){
+        var value=(parseFloat($("#canBuyOne").val())+1).toFixed(3);
+        $("#canBuyOne").val(value);
+    }
+    function addThree(){
+        var value=(parseInt($("#buyStockTwo").val())+100);
+        $("#buyStockTwo").val(value);
+    }
+    function subOne(){
+        var value=parseFloat($("#buyStockOne").val());
+        if(value<=0){
+            alert("卖出金额不能小于零")
+        }else{
+            var newValue=(parseFloat($("#buyStockOne").val())-0.1).toFixed(3);
+            $("#buyStockOne").val(newValue);
+        }
+    }
+
+    function subThree(){
+        var value=parseInt($("#buyStockTwo").val());
+        if(value<=0){
+            alert("卖出数量不能小于零")
+        }else{
+            var newValue=(parseInt($("#buyStockTwo").val())-100);
+            $("#buyStockTwo").val(newValue);
+        }
+    }
+    var rawData = "";
+    var dates = new Array();
+    var data = new Array();
+    var symbol="sz002651";
+    var scale = 5;
+    setInterval(getData, 1000 * 3);
+    setInterval(echartData, 1000 * 3);
+    $(function () {
+        getData();
+    })
+    function getData() {
+        $.ajax({
+            type: "GET",
+            url: '/finance/stock/hs',
+            data: {
+                gid: symbol,
+                type: "",
+                key: "6ca6871bfb17a418d7e3fc54912d6b1d"
+            },
+            dataType: "json",
+            success: function (data) {
+                var result = data.result[0].data;  //股票实时数据
+                var dapandata = data.result[0].dapandata;
+                var picUrl = data.result[0].gopicture;  //股票相关图片url  包括日线图 实时图等
+                $("#dayImg").attr("src", picUrl.minurl);
+                $("#stockSno").text(result.gid);
+                $("#stockName").text(result.name);
+                $("#buyFivePrice").text(result.buyFivePri);
+                $("#buyFourPrice").text(result.buyFourPri);
+                $("#buyThreePrice").text(result.buyThreePri);
+                $("#buyTwoPrice").text(result.buyTwoPri);
+                $("#buyOnePrice").text(result.buyOnePri);
+
+                $("#buyFive").text(result.buyFive);
+                $("#buyFour").text(result.buyFour);
+                $("#buyThree").text(result.buyThree);
+                $("#buyTwo").text(result.buyTwo);
+                $("#buyOne").text(result.buyOne);
+
+                $("#sellFivePrice").text(result.sellFivePri);
+                $("#sellFourPrice").text(result.sellFourPri);
+                $("#sellThreePrice").text(result.sellThreePri);
+                $("#sellTwoPrice").text(result.sellTwoPri);
+                $("#sellOnePrice").text(result.sellOnePri);
+
+                $("#sellFive").text(result.sellFive);
+                $("#sellFour").text(result.sellFour);
+                $("#sellThree").text(result.sellThree);
+                $("#sellTwo").text(result.sellTwo);
+                $("#sellOne").text(result.sellOne);
+                $("#volume").text(result.traNumber);
+                $("#price").text(result.traAmount);
+                $("#lastest").text(dapandata.dot);
+                $("#highest").text(result.todayMax);
+                $("#lowest").text(result.increase);
+                $("#highPrice").text(result.todayMax);
+                $("#lowPrice").text(result.todayMin);
+                $("#open").text(result.todayStartPri);
+
+                $("#stockId").val(result.gid);
+                $("#stoName").val(result.name);
+                $("#sellStock1").val(result.gid);
+                $("#sellName1").val(result.name);
+            },
+            error: function () {
+                alert("请求失败");
+            }
+        })
+    }
+    function echartData() {
+        $.ajax({
+            type: "GET",
+            url: '/quotes_service/api/json_v2.php/CN_MarketData.getKLineData',
+            data: {
+                symbol: symbol,
+                scale: scale,
+                ma: "no",
+                datalen: 1023
+            },
+            contentType: "application/json",
+            success: function (result) {
+                rawData = eval('(' + result + ')');
+                for (var i = 0; i < rawData.length; i++) {
+                    dates[i] = rawData[i].day;
+                    data[i] = [+rawData[i].open, +rawData[i].close, +rawData[i].low, +rawData[i].high];
+                }
+                echartRi();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            },
+        })
+    }
+    function testClick(stockName) {
+        $('div[name="divContent"]').each(function () {
+            $(this).css('display', 'none');
+        })
+        if(stockName==null){
+            symbol=$("#inputValue").val();
+        }
+        else{
+            symbol=$(stockName).children("span").eq(1).text();
+        }
+        getData();
+        echartData();
+        $("#divMin").css('display', 'block');
+    }
+    function displayNone(disDiv) {
+//        $('div[name="divContent"]').each(function () {
+//            $(this).css('display', 'none');
+//        })
+//        $("#" + disDiv).css('display', 'block');
+        if (disDiv == "fenshi") {
+            $("#divEchart").css('display', 'none');
+            $("#divMin").css('display', 'block');
+        }
+        else {
+            if (disDiv == "zhouxian") {
+                scale = 30;
+            }
+            if (disDiv == "rixian") {
+                scale = 5;
+            }
+            if (disDiv == "yuexian") {
+                scale = 60;
+            }
+            $("#divMin").css('display', 'none');
+            $("#divEchart").css('display', 'block');
+            echartData();
+        }
+    }
+    pageSetUp();
+    var worldMapContainer = document.getElementById("divEchart");
+    var resizeWorldMapContainer = function () {
+        worldMapContainer.style.width = (window.innerWidth - 265) * 0.60 + 'px';
+        worldMapContainer.style.height = 400 + 'px';
+    };
+    resizeWorldMapContainer();
+    var myChart = echarts.init(worldMapContainer);
+    function echartRi() {
+        function calculateMA(dayCount, data) {
+            var result = [];
+            for (var i = 0, len = data.length; i < len; i++) {
+                if (i < dayCount) {
+                    result.push('-');
+                    continue;
+                }
+                var sum = 0;
+                for (var j = 0; j < dayCount; j++) {
+                    sum += data[i - j][1];
+                }
+                result.push(sum / dayCount);
+            }
+            return result;
+        }
+
+        var option = {
+            backgroundColor: '#21202D',
+            legend: {
+                data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30'],
+                inactiveColor: '#777',
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    animation: false,
+                    type: 'cross',
+                    lineStyle: {
+                        color: '#376df4',
+                        width: 2,
+                        opacity: 1
+                    }
+                }
+            },
+            xAxis: {
+                type: 'category',
+                data: dates,
+                axisLine: {lineStyle: {color: '#8392A5'}}
+            },
+            yAxis: {
+                scale: true,
+                axisLine: {lineStyle: {color: '#8392A5'}},
+                splitLine: {show: false}
+            },
+            grid: {
+                bottom: 80
+            },
+            dataZoom: [{
+                textStyle: {
+                    color: '#8392A5'
+                },
+                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                handleSize: '80%',
+                dataBackground: {
+                    areaStyle: {
+                        color: '#8392A5'
+                    },
+                    lineStyle: {
+                        opacity: 0.8,
+                        color: '#8392A5'
+                    }
+                },
+                handleStyle: {
+                    color: '#fff',
+                    shadowBlur: 3,
+                    shadowColor: 'rgba(0, 0, 0, 0.6)',
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 2
+                }
+            }, {
+                type: 'inside'
+            }],
+            animation: false,
+            series: [
+                {
+                    type: 'candlestick',
+                    name: '日K',
+                    data: data,
+                    itemStyle: {
+                        normal: {
+                            color: '#FD1050',
+                            color0: '#0CF49B',
+                            borderColor: '#FD1050',
+                            borderColor0: '#0CF49B'
+                        }
+                    }
+                },
+                {
+                    name: 'MA5',
+                    type: 'line',
+                    data: calculateMA(5, data),
+                    smooth: true,
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    }
+                },
+                {
+                    name: 'MA10',
+                    type: 'line',
+                    data: calculateMA(10, data),
+                    smooth: true,
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    }
+                },
+                {
+                    name: 'MA20',
+                    type: 'line',
+                    data: calculateMA(20, data),
+                    smooth: true,
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    }
+                },
+                {
+                    name: 'MA30',
+                    type: 'line',
+                    data: calculateMA(30, data),
+                    smooth: true,
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    }
+                }
+            ]
+        };
+        myChart.setOption(option);
+        window.onresize = function () {
+            resizeWorldMapContainer();
+            myChart.resize();
+        };
+    }
+    loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
+</script>

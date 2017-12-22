@@ -1,0 +1,289 @@
+<!-- Bread crumb is created dynamically -->
+<!-- row -->
+<div class="row">
+
+    <!-- col -->
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+
+            <!-- PAGE HEADER -->
+            <i class="fa-fw fa fa-table"></i>
+            Tables
+            <span>>
+				Jquery Grid
+			</span>
+        </h1>
+    </div>
+    <!-- end col -->
+
+    <!-- right side of the page with the sparkline graphs -->
+    <!-- col -->
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+        <!-- sparks -->
+        <ul id="sparks">
+            <li class="sparks-info">
+                <h5> My Income <span class="txt-color-blue">$47,171</span></h5>
+                <div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+                    1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
+                </div>
+            </li>
+            <li class="sparks-info">
+                <h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up"
+                                                                    data-rel="bootstrap-tooltip" title="Increased"></i>&nbsp;45%</span>
+                </h5>
+                <div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
+                    110,150,300,130,400,240,220,310,220,300, 270, 210
+                </div>
+            </li>
+            <li class="sparks-info">
+                <h5> Site Orders <span class="txt-color-greenDark"><i class="fa fa-shopping-cart"></i>&nbsp;2447</span>
+                </h5>
+                <div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
+                    110,150,300,130,400,240,220,310,220,300, 270, 210
+                </div>
+            </li>
+        </ul>
+        <!-- end sparks -->
+    </div>
+    <!-- end col -->
+
+</div>
+<!-- end row -->
+
+<!--
+	The ID "widget-grid" will start to initialize all widgets below 
+	You do not need to use widgets if you dont want to. Simply remove 
+	the <section></section> and you can use wells or panels instead 
+	-->
+
+<!-- widget grid -->
+<section id="widget-grid" class="">
+
+    <!-- row -->
+    <div class="row">
+
+        <!-- NEW WIDGET START -->
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table id="jqgrid"></table>
+            <div id="pjqgrid"></div>
+
+            <br>
+            <a href="javascript:void(0)" id="m1">Get Selected id"s</a><br>
+            <a href="javascript:void(0)" id="m1s">Select(Unselect) row 13</a>
+
+        </article>
+        <!-- WIDGET END -->
+
+    </div>
+
+    <!-- end row -->
+
+</section>
+<!-- end widget grid -->
+
+<script type="text/javascript">
+
+    /* DO NOT REMOVE : GLOBAL FUNCTIONS!
+     *
+     * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
+     *
+     * // activate tooltips
+     * $("[rel=tooltip]").tooltip();
+     *
+     * // activate popovers
+     * $("[rel=popover]").popover();
+     *
+     * // activate popovers with hover states
+     * $("[rel=popover-hover]").popover({ trigger: "hover" });
+     *
+     * // activate inline charts
+     * runAllCharts();
+     *
+     * // setup widgets
+     * setup_widgets_desktop();
+     *
+     * // run form elements
+     * runAllForms();
+     *
+     ********************************
+     *
+     * pageSetUp() is needed whenever you load a page.
+     * It initializes and checks for all basic elements of the page
+     * and makes rendering easier.
+     *
+     */
+
+    pageSetUp();
+
+    /*
+     * ALL PAGE RELATED SCRIPTS CAN GO BELOW HERE
+     * eg alert("my home function");
+     *
+     * var pagefunction = function() {
+     *   ...
+     * }
+     * loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
+     *
+     */
+
+    var pagefunction = function () {
+        loadScript("js/plugin/jqgrid2/jquery.jqGrid.min.js", run_jqgrid_function);
+
+        function run_jqgrid_function() {
+            jQuery("#jqgrid").jqGrid({
+                jsonReader:{root:"data"},
+                url: "/manage/user/listUser",
+                datatype: "json",
+                height: 'auto',
+                colNames: ["身份证号", "姓名", "性别", "职业", "代办人身份证", "学历", "联系电话", "家庭住址", "工作单位", "登录密码","操作行"],
+                colModel: [
+                    {name: "uIdcard", index: "uIdcard",sortable: false,fixed:false},
+                    {name: "uName", index: "uName",fixed:false},
+                    {name: "uGender", index: "uGender", editable: true,fixed:false},
+                    {name: "uJob", index: "uJob", editable: true,fixed:false},
+                    {name: "uElseidcard", index: "uElseidcard", align: "right", editable: true,fixed:false},
+                    {name: "uEducation", index: "uEducation", align: "right", editable: true,fixed:false},
+                    {name: "uTelephone", index: "uTelephone", align: "right", editable: true,fixed:false},
+                    {name: "uAddress", index: "uAddress", sortable: false, editable: true,fixed:false},
+                    {name: "uEemployer", index: "uEemployer", sortable: false, editable: true,fixed:false},
+                    {name: "uPassword", index: "uPassword", sortable: false, editable: true,fixed:false},
+                    {name: "act", index: "act", sortable: false, editable: false,fixed:false},],
+                rowNum: 10,
+                rowList: [10, 20, 30],
+                pager: '#pjqgrid',
+                sortname: 'id',
+                toolbarfilter: true,
+                viewrecords: true,
+                sortorder: "asc",
+                gridComplete: function () {
+                    var ids = jQuery("#jqgrid").jqGrid('getDataIDs');
+                    for (var i = 0; i < ids.length; i++) {
+                        var cl = ids[i];
+                        be = "<button class='btn btn-xs btn-default'  value='挂失' onclick=\"loss();javascript:{this.disabled=true;}\"><i class='fa fa-pencil'>挂失</i></button>";
+                        ca = "<button class='btn btn-xs btn-default' onclick=\"cancel()\"><i class='fa fa-times'>取消挂失</i></button>";
+                        //ce = "<button class='btn btn-xs btn-default' onclick=\"jQuery('#jqgrid').restoreRow('"+cl+"');\"><i class='fa fa-times'></i></button>";
+                        //jQuery("#jqgrid").jqGrid('setRowData',ids[i],{act:be+se+ce});
+                        jQuery("#jqgrid").jqGrid('setRowData', ids[i], {act: be + ca});
+                    }
+                },
+                editurl: "dummy.html",
+                caption: "个人账户管理",
+                multiselect: true,
+                autowidth: true,
+
+            });
+            jQuery("#jqgrid").jqGrid('navGrid', "#pjqgrid", {
+                edit: false,
+                add: false,
+                del: true
+            });
+            jQuery("#jqgrid").jqGrid('inlineNav', "#pjqgrid");
+            /* Add tooltips */
+            $('.navtable .ui-pg-button').tooltip({
+                container: 'body'
+            });
+
+            jQuery("#m1").click(function () {
+                var s;
+                s = jQuery("#jqgrid").jqGrid('getGridParam', 'selarrrow');
+                alert(s);
+            });
+            jQuery("#m1s").click(function () {
+                jQuery("#jqgrid").jqGrid('setSelection', "13");
+            });
+
+            // remove classes
+            $(".ui-jqgrid").removeClass("ui-widget ui-widget-content");
+            $(".ui-jqgrid-view").children().removeClass("ui-widget-header ui-state-default");
+            $(".ui-jqgrid-labels, .ui-search-toolbar").children().removeClass("ui-state-default ui-th-column ui-th-ltr");
+            $(".ui-jqgrid-pager").removeClass("ui-state-default");
+            $(".ui-jqgrid").removeClass("ui-widget-content");
+
+            // add classes
+            $(".ui-jqgrid-htable").addClass("table table-bordered table-hover");
+            $(".ui-jqgrid-btable").addClass("table table-bordered table-striped");
+
+
+            $(".ui-pg-div").removeClass().addClass("btn btn-sm btn-primary");
+            $(".ui-icon.ui-icon-plus").removeClass().addClass("fa fa-plus");
+            $(".ui-icon.ui-icon-pencil").removeClass().addClass("fa fa-pencil");
+            $(".ui-icon.ui-icon-trash").removeClass().addClass("fa fa-trash-o");
+            $(".ui-icon.ui-icon-search").removeClass().addClass("fa fa-search");
+            $(".ui-icon.ui-icon-refresh").removeClass().addClass("fa fa-refresh");
+            $(".ui-icon.ui-icon-disk").removeClass().addClass("fa fa-save").parent(".btn-primary").removeClass("btn-primary").addClass("btn-success");
+            $(".ui-icon.ui-icon-cancel").removeClass().addClass("fa fa-times").parent(".btn-primary").removeClass("btn-primary").addClass("btn-danger");
+
+            $(".ui-icon.ui-icon-seek-prev").wrap("<div class='btn btn-sm btn-default'></div>");
+            $(".ui-icon.ui-icon-seek-prev").removeClass().addClass("fa fa-backward");
+
+            $(".ui-icon.ui-icon-seek-first").wrap("<div class='btn btn-sm btn-default'></div>");
+            $(".ui-icon.ui-icon-seek-first").removeClass().addClass("fa fa-fast-backward");
+
+            $(".ui-icon.ui-icon-seek-next").wrap("<div class='btn btn-sm btn-default'></div>");
+            $(".ui-icon.ui-icon-seek-next").removeClass().addClass("fa fa-forward");
+
+            $(".ui-icon.ui-icon-seek-end").wrap("<div class='btn btn-sm btn-default'></div>");
+            $(".ui-icon.ui-icon-seek-end").removeClass().addClass("fa fa-fast-forward");
+
+
+            // update buttons
+
+            $(window).on('resize.jqGrid', function () {
+                jQuery("#jqgrid").jqGrid('setGridWidth', $("#content").width());
+            })
+
+
+        } // end function
+    }
+
+    function loss() {
+        var id = $("#jqgrid").jqGrid('getGridParam','selrow');//根据点击行获得点击行的id（id为jsonReader: {id: "id" },）
+        var rowData = $("#jqgrid").jqGrid("getRowData",id);//根据上面的id获得本行的所有数据
+        var uIdcard= rowData.uIdcard;
+        var uName= rowData.uName;
+        $.ajax({
+            type: 'POST',
+            url: '/manage/user/lossReported',
+            data: {"uIdcard":uIdcard,
+                    'uName':uName
+                },
+            success: function (data) {
+                if (data.success) {
+                    alert("挂失成功");
+                }
+                else {
+                    alert("挂失失败");
+                }
+            },
+            error: function () {
+                alert("操作错误");
+            }
+        });
+    }
+    function cancel() {
+        var id = $("#jqgrid").jqGrid('getGridParam','selrow');//根据点击行获得点击行的id（id为jsonReader: {id: "id" },）
+        var rowData = $("#jqgrid").jqGrid("getRowData",id);//根据上面的id获得本行的所有数据
+        var uIdcard= rowData.uIdcard;
+        var uName= rowData.uName;
+        $.ajax({
+            type: 'POST',
+            url: '/manage/user/deleteUser',
+            data: {"uIdcard":uIdcard,
+                'uName':uName
+            },
+            success: function (data) {
+                if (data.success) {
+                    alert("取消挂失成功");
+                }
+                else {
+                    alert("取消挂失失败");
+                }
+            },
+            error: function () {
+                alert("取消挂失操作错误");
+            }
+        });
+    }
+    loadScript("js/plugin/jqgrid2/grid.locale-en.min.js", pagefunction);
+
+</script>

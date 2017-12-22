@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>股票交易系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/supersized.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+    </head>
+
+    <body>
+
+        <div class="page-container">
+            <h1>Login</h1>
+            <form >
+                <input type="text" name="username" class="username" id="idCard" placeholder="Idcard" >
+                <input type="password" name="password" id="passwd" class="password" placeholder="Password">
+
+            </form>
+            <button  onclick="login1()">Sign me in</button>
+
+        </div>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/js/supersized.3.2.7.min.js"></script>
+        <script src="assets/js/supersized-init.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+    <script type="text/javascript">
+        var sId=$("#idCard").val();
+        function isCardID(sId){
+            var iSum=0 ;
+            var info="" ;
+            if(!/^\d{17}(\d|x)$/i.test(sId)) return "你输入的身份证长度或格式错误";
+            sId=sId.replace(/x$/i,"a");
+            if(aCity[parseInt(sId.substr(0,2))]==null) return "你的身份证地区非法";
+            sBirthday=sId.substr(6,4)+"-"+Number(sId.substr(10,2))+"-"+Number(sId.substr(12,2));
+            var d=new Date(sBirthday.replace(/-/g,"/")) ;
+            if(sBirthday!=(d.getFullYear()+"-"+ (d.getMonth()+1) + "-" + d.getDate()))return "身份证上的出生日期非法";
+            for(var i = 17;i>=0;i --) iSum += (Math.pow(2,i) % 11) * parseInt(sId.charAt(17 - i),11) ;
+            if(iSum%11!=1) return "你输入的身份证号非法";
+            //aCity[parseInt(sId.substr(0,2))]+","+sBirthday+","+(sId.substr(16,1)%2?"男":"女");//此次还可以判断出输入的身份证号的人性别
+            return true;
+        }
+        function login1(){
+            if(isCardID(sId)){
+                $.ajax({
+                    type: "GET",
+                    url: '/client/user/login1',
+                    data: {
+                        "idcard":$("#idCard").val(),
+                        "transactionPw":$("#passwd").val()
+                    },
+                    contentType: "application/json",
+                    success: function (data) {
+                        if(data.success) {
+                            var storage = window.localStorage;
+                            var strValue=data.data.id;
+                            if (storage) {
+                                storage.setItem("userId", strValue);
+                            } else {
+                                Cookie.write("userId", strValue);
+                            }
+                            window.location.href = '/main';
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("fail");
+                    },
+                })
+            }
+        }
+    </script>
+
+</html>
+

@@ -1,0 +1,199 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+table.bs-table {
+	width: 100%;
+}
+table.bs-table tr {
+	/* height: 45px; */
+}
+table.bs-table td {
+	text-align: right;
+	padding-right: 5px;
+	padding-top: 8px;
+}
+
+.form-inline .form-group {
+	margin-right: 10px;
+}
+
+.row .well {
+	padding: 8px 20px;
+}
+
+.row {
+	/* margin-right: -15px; */
+}
+
+#form-search .form-control {
+	height: 30px;
+}
+.rightDiv{
+	float: right;
+	width :23%;
+	height:auto;
+	background-color: #1b1e24;
+}
+.divOne{
+	height: 50px;
+	background-color:grey;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background: #1b1e24;
+	border-bottom:1px dotted #ddd;
+}
+.pOne{
+	align-content: space-between;
+	justify-content: space-between;
+	font-size: larger;
+	color: #ffffff;
+	margin-top: 10px;
+	margin-bottom:10px;
+	margin-left: 10px;
+}
+.pTwo{
+	float:right;
+	align-content: space-between;
+	justify-content: space-between;
+	font-size: larger;
+	color: red;
+	margin-top: 10px;
+	margin-bottom:10px;
+	margin-left: 10px;
+}
+.divTwo{
+	height: 200px;
+	background: #1b1e24;
+	border-bottom:1px dotted #ddd;
+	flex-direction: row;
+}
+.buyDiv{
+	justify-content: flex-start;
+	height:200px;
+	width:10%;
+	vertical-align:middle;
+	text-align: center;
+	line-height:40px;
+	float:left;
+	color: #ffffff;
+	border-right:1px dotted #ddd;
+	padding-top: 40px;
+}
+.buyData{
+	height:200px;
+	width:90%;
+	float:right;
+	flex-direction: row;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.divThree{
+	height: 200px;
+	background: #1b1e24;
+	border-bottom:1px dotted #ddd;
+	flex-direction: row;
+}
+.sellDiv{
+	justify-content: flex-start;
+	height:200px;
+	width:10%;
+	vertical-align:middle;
+	text-align: center;
+	line-height:40px;
+	float:left;
+	color:#ffffff;
+	border-right:1px dotted #ddd;
+	padding-top: 40px;
+}
+.sellData{
+	height:200px;
+	width:90%;
+	float:right;
+	padding-left: 10px;
+	padding-right: 10px;
+	flex-direction: row;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.divFour{
+	height: 190px;
+	padding-left: 10px;
+	padding-right: 10px;
+	flex-direction: row;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.divFour .spanOne{
+	color: #ffffff;
+}
+.divFour .spanTwo{
+	color: forestgreen;
+}
+.divFour .spanThree{
+	color:red;
+}
+.sellData .spanOne{
+	color:#ffffff;
+}
+.sellData .spanTwo{
+	color: forestgreen;
+}
+.sellData .spanThree{
+	color: blue;
+}
+.buyData .spanOne{
+	 color:#ffffff;
+ }
+.buyData .spanTwo{
+	color:forestgreen;
+}
+.buyData .spanThree{
+	color:blue;
+}
+.buyStock{
+	padding-top:10px;
+	color:red;
+}
+.inputText{
+	margin-left:20px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+
+}
+.form-group{
+
+	color: #ffffff;
+	padding-bottom: 10px;
+}
+.btn-submit{
+	padding-left:20px;
+	padding-right: 20px;
+}

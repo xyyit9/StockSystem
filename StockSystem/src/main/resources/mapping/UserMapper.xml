@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.godwei.stock.mapper.manage.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.godwei.stock.model.manage.User" >
+    <id column="u_id" property="uId" jdbcType="INTEGER" />
+    <result column="u_name" property="uName" jdbcType="VARCHAR" />
+    <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
+    <result column="u_gender" property="uGender" jdbcType="VARCHAR" />
+    <result column="u_idcard" property="uIdcard" jdbcType="VARCHAR" />
+    <result column="u_address" property="uAddress" jdbcType="VARCHAR" />
+    <result column="u_job" property="uJob" jdbcType="VARCHAR" />
+    <result column="u_education" property="uEducation" jdbcType="VARCHAR" />
+    <result column="u_employer" property="uEmployer" jdbcType="VARCHAR" />
+    <result column="u_telephone" property="uTelephone" jdbcType="VARCHAR" />
+    <result column="u_recordDate" property="uRecorddate" jdbcType="DATE" />
+    <result column="u_type" property="uType" jdbcType="VARCHAR" />
+    <result column="u_elseIdcard" property="uElseidcard" jdbcType="VARCHAR" />
+    <result column="u_status" property="uStatus" jdbcType="INTEGER" />
+    <result column="bankroll_id" property="bankrollId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    u_id, u_name, u_password, u_gender, u_idcard, u_address, u_job, u_education, u_employer, 
+    u_telephone, u_recordDate, u_type, u_elseIdcard, u_status, bankroll_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.godwei.stock.model.manage.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByIdcard" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from tb_user where u_idcard=#{idcard}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.godwei.stock.model.manage.UserExample" >
+    delete from tb_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.godwei.stock.model.manage.User" >
+    insert into tb_user (u_id, u_name, u_password, 
+      u_gender, u_idcard, u_address, 
+      u_job, u_education, u_employer, 
+      u_telephone, u_recordDate, u_type, 
+      u_elseIdcard, u_status, bankroll_id
+      )
+    values (#{uId,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
+      #{uGender,jdbcType=VARCHAR}, #{uIdcard,jdbcType=VARCHAR}, #{uAddress,jdbcType=VARCHAR}, 
+      #{uJob,jdbcType=VARCHAR}, #{uEducation,jdbcType=VARCHAR}, #{uEmployer,jdbcType=VARCHAR}, 
+      #{uTelephone,jdbcType=VARCHAR}, #{uRecorddate,jdbcType=DATE}, #{uType,jdbcType=VARCHAR}, 
+      #{uElseidcard,jdbcType=VARCHAR}, #{uStatus,jdbcType=INTEGER}, #{bankrollId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.godwei.stock.model.manage.User" >
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        u_id,
+      </if>
+      <if test="uName != null" >
+        u_name,
+      </if>
+      <if test="uPassword != null" >
+        u_password,
+      </if>
+      <if test="uGender != null" >
+        u_gender,
+      </if>
+      <if test="uIdcard != null" >
+        u_idcard,
+      </if>
+      <if test="uAddress != null" >
+        u_address,
+      </if>
+      <if test="uJob != null" >
+        u_job,
+      </if>
+      <if test="uEducation != null" >
+        u_education,
+      </if>
+      <if test="uEmployer != null" >
+        u_employer,
+      </if>
+      <if test="uTelephone != null" >
+        u_telephone,
+      </if>
+      <if test="uRecorddate != null" >
+        u_recordDate,
+      </if>
+      <if test="uType != null" >
+        u_type,
+      </if>
+      <if test="uElseidcard != null" >
+        u_elseIdcard,
+      </if>
+      <if test="uStatus != null" >
+        u_status,
+      </if>
+      <if test="bankrollId != null" >
+        bankroll_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="uName != null" >
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null" >
+        #{uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="uIdcard != null" >
+        #{uIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="uAddress != null" >
+        #{uAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="uJob != null" >
+        #{uJob,jdbcType=VARCHAR},
+      </if>
+      <if test="uEducation != null" >
+        #{uEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmployer != null" >
+        #{uEmployer,jdbcType=VARCHAR},
+      </if>
+      <if test="uTelephone != null" >
+        #{uTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="uRecorddate != null" >
+        #{uRecorddate,jdbcType=DATE},
+      </if>
+      <if test="uType != null" >
+        #{uType,jdbcType=VARCHAR},
+      </if>
+      <if test="uElseidcard != null" >
+        #{uElseidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="uStatus != null" >
+        #{uStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bankrollId != null" >
+        #{bankrollId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_user
+    <set >
+      <if test="record.uId != null" >
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uName != null" >
+        u_name = #{record.uName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uPassword != null" >
+        u_password = #{record.uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uGender != null" >
+        u_gender = #{record.uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uIdcard != null" >
+        u_idcard = #{record.uIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uAddress != null" >
+        u_address = #{record.uAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uJob != null" >
+        u_job = #{record.uJob,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uEducation != null" >
+        u_education = #{record.uEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uEmployer != null" >
+        u_employer = #{record.uEmployer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uTelephone != null" >
+        u_telephone = #{record.uTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uRecorddate != null" >
+        u_recordDate = #{record.uRecorddate,jdbcType=DATE},
+      </if>
+      <if test="record.uType != null" >
+        u_type = #{record.uType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uElseidcard != null" >
+        u_elseIdcard = #{record.uElseidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uStatus != null" >
+        u_status = #{record.uStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.bankrollId != null" >
+        bankroll_id = #{record.bankrollId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_user
+    set u_id = #{record.uId,jdbcType=INTEGER},
+      u_name = #{record.uName,jdbcType=VARCHAR},
+      u_password = #{record.uPassword,jdbcType=VARCHAR},
+      u_gender = #{record.uGender,jdbcType=VARCHAR},
+      u_idcard = #{record.uIdcard,jdbcType=VARCHAR},
+      u_address = #{record.uAddress,jdbcType=VARCHAR},
+      u_job = #{record.uJob,jdbcType=VARCHAR},
+      u_education = #{record.uEducation,jdbcType=VARCHAR},
+      u_employer = #{record.uEmployer,jdbcType=VARCHAR},
+      u_telephone = #{record.uTelephone,jdbcType=VARCHAR},
+      u_recordDate = #{record.uRecorddate,jdbcType=DATE},
+      u_type = #{record.uType,jdbcType=VARCHAR},
+      u_elseIdcard = #{record.uElseidcard,jdbcType=VARCHAR},
+      u_status = #{record.uStatus,jdbcType=INTEGER},
+      bankroll_id = #{record.bankrollId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.godwei.stock.model.manage.User" >
+    update tb_user
+    <set >
+      <if test="uName != null" >
+        u_name = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null" >
+        u_gender = #{uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="uIdcard != null" >
+        u_idcard = #{uIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="uAddress != null" >
+        u_address = #{uAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="uJob != null" >
+        u_job = #{uJob,jdbcType=VARCHAR},
+      </if>
+      <if test="uEducation != null" >
+        u_education = #{uEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmployer != null" >
+        u_employer = #{uEmployer,jdbcType=VARCHAR},
+      </if>
+      <if test="uTelephone != null" >
+        u_telephone = #{uTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="uRecorddate != null" >
+        u_recordDate = #{uRecorddate,jdbcType=DATE},
+      </if>
+      <if test="uType != null" >
+        u_type = #{uType,jdbcType=VARCHAR},
+      </if>
+      <if test="uElseidcard != null" >
+        u_elseIdcard = #{uElseidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="uStatus != null" >
+        u_status = #{uStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bankrollId != null" >
+        bankroll_id = #{bankrollId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.godwei.stock.model.manage.User" >
+    update tb_user
+    set u_name = #{uName,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR},
+      u_gender = #{uGender,jdbcType=VARCHAR},
+      u_idcard = #{uIdcard,jdbcType=VARCHAR},
+      u_address = #{uAddress,jdbcType=VARCHAR},
+      u_job = #{uJob,jdbcType=VARCHAR},
+      u_education = #{uEducation,jdbcType=VARCHAR},
+      u_employer = #{uEmployer,jdbcType=VARCHAR},
+      u_telephone = #{uTelephone,jdbcType=VARCHAR},
+      u_recordDate = #{uRecorddate,jdbcType=DATE},
+      u_type = #{uType,jdbcType=VARCHAR},
+      u_elseIdcard = #{uElseidcard,jdbcType=VARCHAR},
+      u_status = #{uStatus,jdbcType=INTEGER},
+      bankroll_id = #{bankrollId,jdbcType=INTEGER}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>

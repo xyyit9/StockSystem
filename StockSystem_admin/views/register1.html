@@ -1,0 +1,573 @@
+
+<div class="row">
+	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+		<h1 class="page-title txt-color-blueDark">
+
+			<!-- PAGE HEADER -->
+			<i class="fa-fw fa fa-pencil-square-o"></i>
+			Forms
+			<span>>
+				Form Layouts
+			</span>
+		</h1>
+	</div>
+
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+
+		<!-- Button trigger modal -->
+		<a href="ajax/modal-content/model-content-2.html" data-toggle="modal" data-target="#remoteModal" class="btn btn-success btn-lg pull-right header-btn hidden-mobile">
+			<i class="fa fa-circle-arrow-up fa-lg"></i>
+			Launch form modal
+		</a>
+
+		<!-- MODAL PLACE HOLDER -->
+		<div class="modal fade" id="remoteModal" tabindex="-1" role="dialog" aria-labelledby="remoteModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content"></div>
+			</div>
+		</div>
+		<!-- END MODAL -->
+
+	</div>
+</div>
+
+<!-- widget grid -->
+<section id="widget-grid" class="">
+
+
+	<!-- START ROW -->
+
+	<div class="row">
+
+		<!-- NEW COL START -->
+		<article class="col-sm-12 col-md-12 col-lg-12">
+
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+					data-widget-colorbutton="false"
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true"
+					data-widget-sortable="false"
+
+				-->
+				<header>
+					<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+					<h2>Registration form </h2>
+
+				</header>
+
+				<!-- widget div-->
+				<div>
+
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body no-padding">
+
+						<form action="" id="order-form" class="smart-form" novalidate="novalidate" style="width:50%;margin-left: 25%;">
+							<header style="text-align: center">
+								法人信息
+							</header>
+
+							<fieldset>
+								<div class="row">
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-user"></i>
+											<input type="text" id="lawerName" name="name" placeholder="法人姓名">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-briefcase"></i>
+											<input type="text" id="lawerAddress" name="company" placeholder="法人联系地址">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-lock"></i>
+											<input type="password" name="password" id="password" placeholder="法人登陆密码" id="password">
+											<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
+									</section>
+
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-lock"></i>
+											<input type="password" id="pwdConfirm" name="passwordConfirm" placeholder="密码确认">
+											<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
+									</section>
+								</div>
+								<div class="row">
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+											<input type="email" id="email" name="email" placeholder="E-mail">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-phone"></i>
+											<input type="tel" id="phone" name="phone" placeholder="法人联系电话">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input">
+											<input type="text" id="idCard" name="address" placeholder="法人身份证号码" >
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input">
+											<input type="text" name="address" id="license" placeholder="法人营业执照" >
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input">
+											<input type="text" name="address" id="registerNumber" placeholder="法人注册登记号码" >
+										</label>
+									</section>
+								</div>
+							</fieldset>
+							<header>
+								授权人信息
+							</header>
+							<fieldset>
+								<div class="row">
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-user"></i>
+											<input type="text" name="name" id="authorizedName" placeholder="授权人姓名">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-briefcase"></i>
+											<input type="text" name="company" id="authorizedAddress" placeholder="授权人联系地址">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-phone"></i>
+											<input type="tel" name="phone" id="authorizedPhone" placeholder="授权人联系电话">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input">
+											<input type="text" name="address" id="authorizedID" placeholder="授权人身份证号码" >
+										</label>
+									</section>
+
+								</div>
+							</fieldset>
+
+						</form>
+						<footer style="width:50%;margin-left: 25%;text-align: center;margin-bottom: 30px;">
+							<button type="submit" class="btn btn-info btn-lg" onclick="confirm()" style="text-align: center;width: 200px;">
+								<i class="fa fa-check"></i>
+								确认开通
+							</button>
+						</footer>
+					</div>
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
+
+			</div>
+			<!-- end widget -->
+
+		</article>
+		<!-- END COL -->
+
+
+	</div>
+
+	<!-- END ROW -->
+
+</section>
+<!-- end widget grid -->
+
+
+<!-- SCRIPTS ON PAGE EVENT -->
+<script type="text/javascript">
+
+    /* DO NOT REMOVE : GLOBAL FUNCTIONS!
+     *
+     * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
+     *
+     * // activate tooltips
+     * $("[rel=tooltip]").tooltip();
+     *
+     * // activate popovers
+     * $("[rel=popover]").popover();
+     *
+     * // activate popovers with hover states
+     * $("[rel=popover-hover]").popover({ trigger: "hover" });
+     *
+     * // activate inline charts
+     * runAllCharts();
+     *
+     * // setup widgets
+     * setup_widgets_desktop();
+     *
+     * // run form elements
+     * runAllForms();
+     *
+     ********************************
+     *
+     * pageSetUp() is needed whenever you load a page.
+     * It initializes and checks for all basic elements of the page
+     * and makes rendering easier.
+     *
+     */
+
+    pageSetUp();
+
+
+    // PAGE RELATED SCRIPTS
+
+    // pagefunction
+
+    var pagefunction = function() {
+
+
+        var $registerForm = $("#smart-form-register").validate({
+
+            // Rules for form validation
+            rules : {
+                username : {
+                    required : true
+                },
+                email : {
+                    required : true,
+                    email : true
+                },
+                address : {
+                    required : true
+                },
+                password : {
+                    required : true,
+                    minlength : 3,
+                    maxlength : 20
+                },
+                passwordConfirm : {
+                    required : true,
+                    minlength : 3,
+                    maxlength : 20,
+                    equalTo : '#password'
+                },
+                firstname : {
+                    required : true
+                },
+                lastname : {
+                    required : true
+                },
+                gender : {
+                    required : true
+                },
+                terms : {
+                    required : true
+                }
+            },
+
+            // Messages for form validation
+            messages : {
+                login : {
+                    required : 'Please enter your login'
+                },
+                email : {
+                    required : 'Please enter your email address',
+                    email : 'Please enter a VALID email address'
+                },
+                password : {
+                    required : 'Please enter your password'
+                },
+                address : {
+                    required : 'Please enter your full address'
+                },
+                passwordConfirm : {
+                    required : 'Please enter your password one more time',
+                    equalTo : 'Please enter the same password as above'
+                },
+                firstname : {
+                    required : 'Please select your first name'
+                },
+                lastname : {
+                    required : 'Please select your last name'
+                },
+                gender : {
+                    required : 'Please select your gender'
+                },
+                terms : {
+                    required : 'You must agree with Terms and Conditions'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement : function(error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        var $reviewForm = $("#review-form").validate({
+            // Rules for form validation
+            rules : {
+                name : {
+                    required : true
+                },
+                email : {
+                    required : true,
+                    email : true
+                },
+                review : {
+                    required : true,
+                    minlength : 20
+                },
+                quality : {
+                    required : true
+                },
+                reliability : {
+                    required : true
+                },
+                overall : {
+                    required : true
+                }
+            },
+
+            // Messages for form validation
+            messages : {
+                name : {
+                    required : 'Please enter your name'
+                },
+                email : {
+                    required : 'Please enter your email address',
+                    email : '<i class="fa fa-warning"></i><strong>Please enter a VALID email addres</strong>'
+                },
+                review : {
+                    required : 'Please enter your review'
+                },
+                quality : {
+                    required : 'Please rate quality of the product'
+                },
+                reliability : {
+                    required : 'Please rate reliability of the product'
+                },
+                overall : {
+                    required : 'Please rate the product'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement : function(error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        var $commentForm = $("#comment-form").validate({
+            // Rules for form validation
+            rules : {
+                name : {
+                    required : true
+                },
+                email : {
+                    required : true,
+                    email : true
+                },
+                url : {
+                    url : true
+                },
+                comment : {
+                    required : true
+                }
+            },
+
+            // Messages for form validation
+            messages : {
+                name : {
+                    required : 'Enter your name',
+                },
+                email : {
+                    required : 'Enter your email address',
+                    email : 'Enter a VALID email'
+                },
+                url : {
+                    email : 'Enter a VALID url'
+                },
+                comment : {
+                    required : 'Please enter your comment'
+                }
+            },
+
+            // Ajax form submition
+            submitHandler : function(form) {
+                $(form).ajaxSubmit({
+                    success : function() {
+                        $("#comment-form").addClass('submited');
+                    }
+                });
+            },
+
+            // Do not change code below
+            errorPlacement : function(error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        var $contactForm = $("#contact-form").validate({
+            // Rules for form validation
+            rules : {
+                name : {
+                    required : true
+                },
+                email : {
+                    required : true,
+                    email : true
+                },
+                message : {
+                    required : true,
+                    minlength : 10
+                }
+            },
+
+            // Messages for form validation
+            messages : {
+                name : {
+                    required : 'Please enter your name',
+                },
+                email : {
+                    required : 'Please enter your email address',
+                    email : 'Please enter a VALID email address'
+                },
+                message : {
+                    required : 'Please enter your message'
+                }
+            },
+
+            // Ajax form submition
+            submitHandler : function(form) {
+                $(form).ajaxSubmit({
+                    success : function() {
+                        $("#contact-form").addClass('submited');
+                    }
+                });
+            },
+
+            // Do not change code below
+            errorPlacement : function(error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        var $orderForm = $("#order-form").validate({
+            // Rules for form validation
+            rules : {
+                name : {
+                    required : true
+                },
+                email : {
+                    required : true,
+                    email : true
+                },
+                phone : {
+                    required : true
+                },
+                interested : {
+                    required : true
+                },
+                budget : {
+                    required : true
+                }
+            },
+
+            // Messages for form validation
+            messages : {
+                name : {
+                    required : 'Please enter your name'
+                },
+                email : {
+                    required : 'Please enter your email address',
+                    email : 'Please enter a VALID email address'
+                },
+                phone : {
+                    required : 'Please enter your phone number'
+                },
+                interested : {
+                    required : 'Please select interested service'
+                },
+                budget : {
+                    required : 'Please select your budget'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement : function(error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        // START AND FINISH DATE
+        $('#startdate').datepicker({
+            dateFormat : 'dd.mm.yy',
+            prevText : '<i class="fa fa-chevron-left"></i>',
+            nextText : '<i class="fa fa-chevron-right"></i>',
+            onSelect : function(selectedDate) {
+                $('#finishdate').datepicker('option', 'minDate', selectedDate);
+            }
+        });
+
+        $('#finishdate').datepicker({
+            dateFormat : 'dd.mm.yy',
+            prevText : '<i class="fa fa-chevron-left"></i>',
+            nextText : '<i class="fa fa-chevron-right"></i>',
+            onSelect : function(selectedDate) {
+                $('#startdate').datepicker('option', 'maxDate', selectedDate);
+            }
+        });
+
+    };
+
+    // end pagefunction
+
+    // Load form valisation dependency
+    loadScript("js/plugin/jquery-form/jquery-form.min.js", pagefunction);
+    function confirm() {
+        var lawer={};
+        lawer.cName= $("#lawerName").val();
+        lawer.cAddress=$("#lawerAddress").val();
+        lawer.cPassword = $("#password").val();
+        lawer.cTelephone = $("#phone").val();
+        lawer.cIdcard=$("#idCard").val();
+        lawer.cLicense=$("#license").val();
+        lawer.cRegisternumber=$("#registerNumber").val();
+        lawer.aName=$("#authorizedName").val();
+        lawer.aAddress=$("#authorizedAddress").val();
+        lawer.aTelephone=$("#authorizedPhone").val();
+        lawer.aIdcard=$("#authorizedID").val();
+        $.ajax({
+            type: 'POST',
+            url: '/manage/corporation/addCorporation',
+			contentType:"application/json",
+            data:  JSON.stringify(lawer),
+			dataType:"json",
+
+            success: function (data) {
+                if (data.success) {
+                    alert("注册成功");
+                }
+                else {
+                    alert("注册失败");
+                }
+            },
+            error: function () {
+                alert("failed");
+            }
+        });
+    }
+    function formReset(){
+        document.getElementById("form1").reset();
+    }
+
+
+</script>
